@@ -112,7 +112,7 @@ print()
 # univariant time series data (one varabile over time)
 # typically, x (or time) is independent and
 # y is dependent on x (e.g. temperature vs hour of day)
-xtimes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+xtimes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,]
 yvalues = [2, 5, 8, 20, 21, 23, 24, 27, 30, 31, 31,32]
 
 # if the lists are not the same size,

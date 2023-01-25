@@ -64,6 +64,11 @@ You can change it, but violating customs is considered bad form.
 
 import datetime
 from enum import Enum
+import math
+import statistics
+import random
+import doctest
+
 
 
 class Species(Enum):
@@ -76,7 +81,7 @@ class Species(Enum):
 class PyBuddy:
     """ PyBuddy class for creating a study buddy."""
 
-    def __init__(self, name, species, num_legs, weight_kgs, is_available, skill_list):
+    def __init__(self, name, species, num_legs, weight_kgs, is_available, skill_list, exercise_time, blood_pressure, fourty_yard_dash):
         """ Built-in method to create a new instance."""
         self.name = name
         self.species = species
@@ -85,6 +90,9 @@ class PyBuddy:
         self.is_available = is_available
         self.skill_list = skill_list
         self.create_date = datetime.datetime.now()
+        self.exercise_time = exercise_time
+        self.blood_pressure = blood_pressure
+        self.speed = fourty_yard_dash
 
     def __str__(self):
         """Built-in method to return a string describing this instance"""
@@ -94,11 +102,11 @@ class PyBuddy:
         s3 = f"I've been alive for {self.get_age_string()}.\n"
 
         if self.is_available:
-            s4 = "I'm available for tutoring.\n"
+            s4 = "I'm here to help you stay healthy.\n"
         else:
-            s4 = "I'm already helping others learn Python.\n"
+            s4 = "I'm sick, and need to stay in.\n"
 
-        s5 = "I know:\n"
+        s5 = "I know how to:\n"
 
         s6 = ""
         for skill in self.skill_list:
@@ -121,6 +129,15 @@ class PyBuddy:
         # print using our built-in to string method
         print(self.__str__())
 
+    # new method additions
+    def exercise_time(self):
+        """Return average exercise time"""
+        return statistics.mean(self.exercise_time)
+
+    def blood_pressure(self):
+        """Return blood pressure taken this particular day"""
+        return random.choice(self.blood_pressure)
+
         final_message = """
 
         You'll need curiousity, the ability to search the web,
@@ -140,22 +157,29 @@ class PyBuddy:
 
 if __name__ == "__main__":
     # Create an instance of a PyBuddy
-    alice = PyBuddy(
-        "Alice",
-        Species.CAT,
+    doctor_who_are_you = PyBuddy(
+        "Dr. Who Are You",
+        Species.ORC,
         4,
         8.123456,
         True,
-        ["Git", "GitHub", "Python", "Markdown", "VS Code"],
+        [100, 60, 55, 30,]
+        [120/80, 145/75, 130/85]
     )
 
     # Call the buddy's welcome() method
-    alice.display_welcome()
+    doctor_who_are_you.display_welcome()
 
+# display information about exercise time and blood pressure
+
+print(f'my randomly selected blood pressure is {doctor_who_are_you.blood_pressure():} mm/hg')
+print()
+print(f'my average time spent during exercise is {doctor_who_are_you.exercise_time()} minutes')
+print()
 
     # Create another instance of a PyBuddy
     # using named arguments so it's clear what we're doing
-    rex = PyBuddy(
+rex = PyBuddy(
         name="Rex",
         species=Species.DOG,
         num_legs=4,
@@ -164,4 +188,4 @@ if __name__ == "__main__":
         skill_list=["Git", "GitHub", "Python", "Markdown", "VS Code"],
     )
 
-    rex.display_welcome()
+rex.display_welcome()

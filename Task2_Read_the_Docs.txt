@@ -1,0 +1,12 @@
+Search the web for python standard library math. See the functions math provides. 
+2. What does math.ceil() do?  How many arguments does it take? What does it return? 
+    Math.ceil rounds a number up to the nearest integer, if necessary, and returns the results
+    It takes 1 arguments
+    It returns the result which can be an int or float type argument
+
+3. What does math.fabs() do?  How many arguments does it take? What does it return? 
+    math.fabs() returns the absolute value 
+    It takes 1 argument 
+    Returns absolute value of either float or int
+
+
